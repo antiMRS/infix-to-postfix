@@ -36,18 +36,15 @@ impl<V, O: Operator> MathToken<V, O> {
     }
 
     pub fn is_lparen(&self) -> bool {
-        if let Self::LParen = self { true } else { false }
+        matches!(self, Self::LParen)
     }
 
     pub fn is_rparen(&self) -> bool {
-        if let Self::RParen = self { true } else { false }
+        matches!(self, Self::RParen)
     }
 
     pub fn is_paren(&self) -> bool {
-        match self {
-            Self::RParen | Self::LParen => true,
-            _ => false,
-        }
+        matches!(self, Self::LParen | Self::RParen)
     }
 }
 
@@ -132,17 +129,11 @@ impl Operator for DefaultOperator {
     }
 
     fn is_righthand(&self) -> bool {
-        match self {
-            Self::LShift | Self::RShift | Self::Sub => false,
-            _ => true,
-        }
+        !matches!(self, Self::LShift | Self::RShift | Self::Sub)
     }
 
     fn is_binary(&self) -> bool {
-        match self {
-            Self::Neg | Self::Ne | Self::BNe => false,
-            _ => true,
-        }
+        !matches!(self, Self::Neg | Self::Ne | Self::BNe)
     }
 }
 

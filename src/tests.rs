@@ -422,9 +422,9 @@ fn rem_same_precedence_as_mul_and_div() {
         vec![
             v(1),
             v(2),
-            Op(DefaultOperator::Mul),
             v(3),
             Op(DefaultOperator::Rem),
+            Op(DefaultOperator::Mul),
         ],
     );
 }

@@ -2,5 +2,15 @@
 name = "infix-to-postfix"
 version = "1.0.0"
 edition = "2024"
+description = "Shouting Yard algorithm realisation in rust"
+repository = "https://github.com/antiMRS/infix-to-postfix/"
+authors = ["antiMRS"]
+readme = "README.md"
+license = "MIT"
+categories = ["development-tools"]
+
+[lib]
+name = "infix_to_postfix"
+path = "src/lib.rs"
 
 [dependencies]

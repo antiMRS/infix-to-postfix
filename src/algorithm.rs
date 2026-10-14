@@ -11,7 +11,7 @@ macro_rules! EXPECT_VALUE {
 macro_rules! EXPECT_OPERATOR {
     ($cond:expr) => {
         if $cond {
-            return Err(ParseError::UnexpectedOperand);
+            return Err(ParseError::ExpectedOperand);
         }
     };
 }
